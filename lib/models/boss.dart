@@ -2,23 +2,21 @@ import 'dart:core';
 
 class Boss {
   String name; //name of the boss
-  Duration respawnInterval; //60 or 30 minutes
-  DateTime currentTime = DateTime.now(); //current time
-
+  int respawnInterval; //in minutes
   Boss({required this.name, required this.respawnInterval});
 
   Duration timeUntilNextSpawn() {
     //check what minute of hour it is
     final current_minute = DateTime.now().minute;
-    print(current_minute);
-    int timeToSpawn = 0;
-    int bossInterval = respawnInterval.inMinutes;
-    if (current_minute < bossInterval) {
-      timeToSpawn = bossInterval - current_minute;
-      return Duration(minutes: timeToSpawn);
+    final current_second = DateTime.now().second;
+    int minuteToSpawn = 0;
+    int secondToSpawn = 60 - current_second;
+    if (current_minute < respawnInterval) {
+      minuteToSpawn = respawnInterval - current_minute;
+      return Duration(minutes: minuteToSpawn, seconds: secondToSpawn);
     } else {
-      timeToSpawn = current_minute - bossInterval;
+      minuteToSpawn = current_minute - respawnInterval;
     }
-    return Duration(minutes: timeToSpawn);
+    return Duration(minutes: minuteToSpawn, seconds: secondToSpawn);
   }
 }
