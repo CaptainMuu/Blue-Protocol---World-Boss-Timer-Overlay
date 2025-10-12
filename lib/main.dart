@@ -8,7 +8,6 @@ void main() async {
   await windowManager.ensureInitialized();
 
   WindowOptions windowOptions = WindowOptions(
-    size: Size(400, 300),
     center: false,
     backgroundColor: Colors.transparent,
     skipTaskbar: false,
@@ -25,8 +24,8 @@ void main() async {
 
   doWhenWindowReady(() {
     final window = appWindow;
-    window.minSize = const Size(400, 300);
-    window.size = const Size(400, 300);
+    window.minSize = const Size(10, 5);
+    window.size = const Size(178, 53);
     window.alignment = Alignment.topRight;
     window.title = "Boss Timer Overlay";
     window.show();
@@ -39,6 +38,10 @@ class WorldBossTimer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'Nordic',
+        textTheme: TextTheme(bodyMedium: TextStyle(color: Colors.white)),
+      ),
       debugShowCheckedModeBanner: false,
       title: 'World Boss Timer',
       home: OverlayWindow(),

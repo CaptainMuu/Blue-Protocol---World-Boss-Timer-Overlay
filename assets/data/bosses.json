@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Frost Ogre",
+    "respawnInterval": 30,
+    "icon": "assets/images/FrostOgre_icon.png"
+  },
+  {
+    "name": "Golden Juggernaut",
+    "respawnInterval": 30,
+    "icon": "assets/images/GoldenJuggernaut_icon.png"
+  }
+]

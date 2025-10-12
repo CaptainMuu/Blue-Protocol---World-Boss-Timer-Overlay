@@ -18,7 +18,11 @@ class _BossTimerPageState extends State<BossTimerPage> {
   @override
   void initState() {
     super.initState();
-    boss = Boss(name: 'Ice Troll', respawnInterval: 30);
+    boss = Boss(
+      name: 'Ice Troll',
+      respawnInterval: 30,
+      icon: 'assets/images/GoldenJuggernaut_icon.png',
+    );
   }
 
   void startTimer() {
@@ -38,24 +42,33 @@ class _BossTimerPageState extends State<BossTimerPage> {
     });
   }
 
+  @override
   //Cleaning
   void dispose() {
     timer?.cancel(); //stop any timer if present and running
     super.dispose(); //flutter cleanup
   }
 
+  @override
   Widget build(BuildContext context) {
     final timeString =
         timeRemaining == null
             ? ('--:--')
-            : (timeRemaining!.inMinutes.toString() +
-                ':' +
-                timeRemaining!.inSeconds.remainder(60).toString());
+            : ('${timeRemaining!.inMinutes.toString().padLeft(2, '0')}:${timeRemaining!.inSeconds.remainder(60).toString().padLeft(2, '0')}');
     //set time string to be a string value of timeRemaining - if it's null, then display --:--
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: Center(
-        child: Container(
+    startTimer();
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Image(
+          image: AssetImage('assets/images/FrostOgre_icon.png'),
+          height: 50,
+          width: 50,
+        ),
+        Container(
+          height: 50,
+          width: 100,
           decoration: BoxDecoration(
             color: Colors.black.withOpacity(0.5),
             borderRadius: BorderRadius.circular(16),
@@ -63,18 +76,17 @@ class _BossTimerPageState extends State<BossTimerPage> {
           child: Column(
             children: [
               Text(
-                'Next ${boss.name} will spawn in: ',
-                style: TextStyle(color: Colors.white),
+                '${boss.name}',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
               Text(timeString, style: TextStyle(color: Colors.white)),
-              ElevatedButton(
-                onPressed: startTimer,
-                child: Text("show respawn time"),
-              ),
             ],
           ),
         ),
-      ),
+      ],
     );
   }
 }

@@ -3,19 +3,29 @@ import 'dart:core';
 class Boss {
   String name; //name of the boss
   int respawnInterval; //in minutes
-  Boss({required this.name, required this.respawnInterval});
+  String icon; //icon assets path
+
+  Boss({required this.name, required this.respawnInterval, required this.icon});
+
+  factory Boss.fromJson(Map<String, dynamic> json) {
+    return Boss(
+      name: json['name'],
+      respawnInterval: json['respawnInterval'],
+      icon: json['icon'],
+    );
+  }
 
   Duration timeUntilNextSpawn() {
     //check what minute of hour it is
-    final current_minute = DateTime.now().minute;
-    final current_second = DateTime.now().second;
+    final currentMinute = DateTime.now().minute;
+    final currentSecond = DateTime.now().second;
     int minuteToSpawn = 0;
-    int secondToSpawn = 60 - current_second;
-    if (current_minute < respawnInterval) {
-      minuteToSpawn = respawnInterval - current_minute;
+    int secondToSpawn = 60 - currentSecond;
+    if (currentMinute < respawnInterval) {
+      minuteToSpawn = respawnInterval - currentMinute;
       return Duration(minutes: minuteToSpawn, seconds: secondToSpawn);
     } else {
-      minuteToSpawn = current_minute - respawnInterval;
+      minuteToSpawn = currentMinute - respawnInterval;
     }
     return Duration(minutes: minuteToSpawn, seconds: secondToSpawn);
   }
