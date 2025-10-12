@@ -53,16 +53,26 @@ class _BossTimerPageState extends State<BossTimerPage> {
                 timeRemaining!.inSeconds.remainder(60).toString());
     //set time string to be a string value of timeRemaining - if it's null, then display --:--
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: Center(
-        child: Column(
-          children: [
-            Text('Next ${boss.name} will spawn in: '),
-            Text(timeString),
-            ElevatedButton(
-              onPressed: startTimer,
-              child: Text("show respawn time"),
-            ),
-          ],
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.5),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Column(
+            children: [
+              Text(
+                'Next ${boss.name} will spawn in: ',
+                style: TextStyle(color: Colors.white),
+              ),
+              Text(timeString, style: TextStyle(color: Colors.white)),
+              ElevatedButton(
+                onPressed: startTimer,
+                child: Text("show respawn time"),
+              ),
+            ],
+          ),
         ),
       ),
     );
