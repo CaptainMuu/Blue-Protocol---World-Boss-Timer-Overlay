@@ -4,7 +4,8 @@ import 'package:bp_world_boss/models/boss.dart';
 import 'package:flutter/material.dart';
 
 class BossTimerPage extends StatefulWidget {
-  const BossTimerPage({super.key});
+  final Boss boss;
+  const BossTimerPage({required this.boss, super.key});
 
   @override
   State<BossTimerPage> createState() => _BossTimerPageState();
@@ -18,11 +19,6 @@ class _BossTimerPageState extends State<BossTimerPage> {
   @override
   void initState() {
     super.initState();
-    boss = Boss(
-      name: 'Ice Troll',
-      respawnInterval: 30,
-      icon: 'assets/images/GoldenJuggernaut_icon.png',
-    );
   }
 
   void startTimer() {
@@ -61,11 +57,7 @@ class _BossTimerPageState extends State<BossTimerPage> {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Image(
-          image: AssetImage('assets/images/FrostOgre_icon.png'),
-          height: 50,
-          width: 50,
-        ),
+        Image(image: AssetImage(boss.icon), height: 50, width: 50),
         Container(
           height: 50,
           width: 100,

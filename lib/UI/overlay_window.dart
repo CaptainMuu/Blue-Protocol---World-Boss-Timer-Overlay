@@ -2,8 +2,11 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:bp_world_boss/UI/boss_timer_page.dart';
 import 'package:flutter/material.dart';
 
+import '../models/boss.dart';
+
 class OverlayWindow extends StatefulWidget {
-  const OverlayWindow({super.key});
+  final Boss boss;
+  const OverlayWindow({required this.boss, super.key});
 
   @override
   State<OverlayWindow> createState() => _OverlayWindowState();
@@ -34,7 +37,7 @@ class _OverlayWindowState extends State<OverlayWindow> {
                   color: Colors.black.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: BossTimerPage(),
+                child: BossTimerPage(boss: widget.boss),
               ),
             ),
             Padding(

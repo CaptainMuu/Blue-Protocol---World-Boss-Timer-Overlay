@@ -14,7 +14,6 @@ class Boss {
       icon: json['icon'],
     );
   }
-
   Duration timeUntilNextSpawn() {
     //check what minute of hour it is
     final currentMinute = DateTime.now().minute;
