@@ -7,53 +7,39 @@ import 'package:window_manager/window_manager.dart';
 void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   await windowManager.ensureInitialized();
+  final isOverlay = args.isNotEmpty && args.first == '--overlay';
+  final bossName = isOverlay ? args[1] : null;
 
-  if (args.isNotEmpty && args.first == '--overlay') {
-    final bossName = args[1];
-    WidgetsFlutterBinding.ensureInitialized();
-    await windowManager.ensureInitialized();
+  WindowOptions windowOptions = WindowOptions(
+    center: false,
+    backgroundColor: isOverlay ? Colors.transparent : Colors.white,
+    skipTaskbar: isOverlay,
+    titleBarStyle: isOverlay ? TitleBarStyle.hidden : TitleBarStyle.normal,
+  );
 
-    WindowOptions windowOptions = WindowOptions(
-      center: false,
-      backgroundColor: Colors.transparent,
-      skipTaskbar: false,
-      titleBarStyle: TitleBarStyle.hidden,
-    );
+  await windowManager.waitUntilReadyToShow(windowOptions, () async {
+    await windowManager.setAlwaysOnTop(isOverlay);
+    await windowManager.show();
+    await windowManager.focus();
+  });
 
-    windowManager.waitUntilReadyToShow(windowOptions, () async {
-      await windowManager.setAlwaysOnTop(true);
-      await windowManager.show();
-      await windowManager.focus();
-    });
-
-    doWhenWindowReady(() {
-      final window = appWindow;
+  doWhenWindowReady(() async {
+    final window = appWindow;
+    if (isOverlay) {
       window.minSize = const Size(10, 5);
       window.size = const Size(178, 53);
       window.alignment = Alignment.topRight;
       window.title = "Boss Timer Overlay";
-      window.show();
-    });
-
-    runApp(WorldBossTimer(bossName: bossName));
-  } else {
-    WidgetsFlutterBinding.ensureInitialized();
-    await windowManager.ensureInitialized();
-
-    WindowOptions windowOptions = WindowOptions(center: false);
-
-    windowManager.waitUntilReadyToShow(windowOptions, () async {
-      await windowManager.setAlwaysOnTop(false);
-      await windowManager.show();
-      await windowManager.focus();
-    });
-    doWhenWindowReady(() {
-      final window = appWindow;
+    } else {
       window.minSize = const Size(200, 200);
-      window.size = const Size(400, 800);
+      window.size = const Size(550, 800);
       window.title = "Boss Timer Menu";
-      window.show();
-    });
+    }
+    window.show();
+  });
+  if (isOverlay) {
+    runApp(WorldBossTimer(bossName: bossName!));
+  } else {
     runApp(WorldBossTimerMenu());
   }
 }
