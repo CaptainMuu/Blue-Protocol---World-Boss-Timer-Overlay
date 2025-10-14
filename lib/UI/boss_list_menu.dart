@@ -22,7 +22,19 @@ class _BossListMenuState extends State<BossListMenu> {
       'bp_world_boss.exe',
     ); //in final -> path.join(Directory.current.path
     print(exePath);
-    await Process.start(exePath, [bossName], runInShell: true);
+    try {
+      final process = await Process.start(exePath, [
+        bossName,
+      ], runInShell: true);
+      process.stdout.transform(utf8.decoder).listen((data) {
+        print('[overlay stdout]: $data');
+      });
+      process.stderr.transform(utf8.decoder).listen((data) {
+        print('[overlay stdout]: $data');
+      });
+    } catch (e) {
+      print('error');
+    }
     print("go");
   }
 

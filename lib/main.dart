@@ -8,7 +8,7 @@ Future<void> main(List<String> args) async {
   await windowManager.ensureInitialized();
   print('Args: $args');
   final isOverlay = args.isNotEmpty;
-  final bossName = isOverlay ? args[1] : null;
+  final bossName = isOverlay ? args[0] : null;
 
   WindowOptions windowOptions = WindowOptions(
     center: false,
