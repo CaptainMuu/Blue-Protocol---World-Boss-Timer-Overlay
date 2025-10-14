@@ -21,7 +21,9 @@ class _BossListMenuState extends State<BossListMenu> {
       'C:/Users/JanRawa/IdeaProjects/bp_world_boss/build/windows/x64/runner/Release',
       'bp_world_boss.exe',
     ); //in final -> path.join(Directory.current.path
-    await Process.start(exePath, ['--overlay', bossName]);
+    print(exePath);
+    await Process.start(exePath, [bossName], runInShell: true);
+    print("go");
   }
 
   Future<List<Boss>> loadBossList() async {

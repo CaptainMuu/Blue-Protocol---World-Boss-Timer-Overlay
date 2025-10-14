@@ -26,43 +26,38 @@ class _OverlayWindowState extends State<OverlayWindow> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: MoveWindow(
-        child: Row(
-          children: [
-            Center(
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.5),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: BossTimerPage(boss: widget.boss),
+    return MoveWindow(
+      child: Row(
+        children: [
+          Center(
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(8),
               ),
+              child: BossTimerPage(boss: widget.boss),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(1, 0, 1, 20),
-              child: GestureDetector(
-                onTap: () => appWindow.close(),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.5),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(2.0),
-                    child: Text(
-                      'X',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(1, 0, 1, 20),
+            child: GestureDetector(
+              onTap: () => appWindow.close(),
+              child: Container(
+                decoration: BoxDecoration(color: Colors.black.withOpacity(0.5)),
+                child: Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: Text(
+                    'X',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

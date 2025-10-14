@@ -1,13 +1,13 @@
-import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:bp_world_boss/overlay_mode_main.dart';
 import 'package:bp_world_boss/world_boss_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 
-void main(List<String> args) async {
+Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   await windowManager.ensureInitialized();
-  final isOverlay = args.isNotEmpty && args.first == '--overlay';
+  print('Args: $args');
+  final isOverlay = args.isNotEmpty;
   final bossName = isOverlay ? args[1] : null;
 
   WindowOptions windowOptions = WindowOptions(
@@ -19,24 +19,15 @@ void main(List<String> args) async {
 
   await windowManager.waitUntilReadyToShow(windowOptions, () async {
     await windowManager.setAlwaysOnTop(isOverlay);
+    if (isOverlay) {
+      await windowManager.setSize(Size(178, 53));
+    } else {
+      await windowManager.setSize(Size(550, 800));
+    }
     await windowManager.show();
     await windowManager.focus();
   });
 
-  doWhenWindowReady(() async {
-    final window = appWindow;
-    if (isOverlay) {
-      window.minSize = const Size(10, 5);
-      window.size = const Size(178, 53);
-      window.alignment = Alignment.topRight;
-      window.title = "Boss Timer Overlay";
-    } else {
-      window.minSize = const Size(200, 200);
-      window.size = const Size(550, 800);
-      window.title = "Boss Timer Menu";
-    }
-    window.show();
-  });
   if (isOverlay) {
     runApp(WorldBossTimer(bossName: bossName!));
   } else {
