@@ -1,39 +1,10 @@
 import 'dart:convert';
 
-import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:bp_world_boss/UI/overlay_window.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:window_manager/window_manager.dart';
 
 import 'models/boss.dart';
-
-void main(List<String> args) async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await windowManager.ensureInitialized();
-
-  WindowOptions windowOptions = WindowOptions(
-    center: false,
-    backgroundColor: Colors.transparent,
-    skipTaskbar: false,
-    titleBarStyle: TitleBarStyle.hidden,
-  );
-
-  windowManager.waitUntilReadyToShow(windowOptions, () async {
-    await windowManager.setAlwaysOnTop(true);
-    await windowManager.show();
-    await windowManager.focus();
-  });
-
-  doWhenWindowReady(() {
-    final window = appWindow;
-    window.minSize = const Size(10, 5);
-    window.size = const Size(178, 53);
-    window.alignment = Alignment.topRight;
-    window.title = "Boss Timer Overlay";
-    window.show();
-  });
-}
 
 class WorldBossTimer extends StatefulWidget {
   final String bossName;

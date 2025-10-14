@@ -29,7 +29,6 @@ class _BossListMenuState extends State<BossListMenu> {
       'assets/data/bosses.json',
     ); //load json from assets
     final List<dynamic> jsonResults = jsonDecode(data); // decode json to list
-    print(jsonResults);
     return jsonResults
         .map((element) => Boss.fromJson(element))
         .toList(); //map each element on jsonResults and use a function then make a normal list
