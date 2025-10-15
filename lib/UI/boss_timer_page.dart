@@ -70,22 +70,22 @@ class _BossTimerPageState extends State<BossTimerPage> {
             padding: const EdgeInsets.only(top: 5),
             child: Column(
               children: [
-                Text(
-                  boss.name,
+                DefaultTextStyle(
                   style: TextStyle(
                     fontFamily: 'Nordic',
                     color: Colors.white,
                     fontWeight: FontWeight.w700,
-                    fontSize: 13,
+                    fontSize: 15,
                   ),
+                  child: Text(boss.name),
                 ),
-                Text(
-                  timeString,
+                DefaultTextStyle(
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w700,
                     fontSize: 18,
                   ),
+                  child: Text(timeString),
                 ),
               ],
             ),

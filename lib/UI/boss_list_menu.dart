@@ -18,9 +18,9 @@ class _BossListMenuState extends State<BossListMenu> {
 
   void openBossOverlay(String bossName) async {
     final exePath = path.join(
-      'C:/Users/JanRawa/IdeaProjects/bp_world_boss/build/windows/x64/runner/Release',
+      path.join(Directory.current.path),
       'bp_world_boss.exe',
-    ); //in final -> path.join(Directory.current.path
+    ); //in final -> path.join(Directory.current.path)
     print(exePath);
     try {
       final process = await Process.start(exePath, [
@@ -68,23 +68,54 @@ class _BossListMenuState extends State<BossListMenu> {
           );
         } else {
           final bosses = snapshot.data!;
-          return ListView.builder(
-            padding: const EdgeInsets.all(8),
-            itemCount: bosses.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Row(
-                children: [
-                  Text(
-                    bosses[index].name,
-                    style: TextStyle(fontFamily: 'Nordic'),
+          return DecoratedBox(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage('assets/images/background.png'),
+              ),
+            ),
+            child: ListView.builder(
+              padding: const EdgeInsets.all(8),
+              itemCount: bosses.length,
+              itemBuilder: (BuildContext context, int index) {
+                return DefaultTextStyle(
+                  style: TextStyle(
+                    fontFamily: 'Nordic',
+                    fontSize: 40,
+                    shadows: <Shadow>[
+                      Shadow(
+                        offset: Offset(2.0, 1.0),
+                        blurRadius: 1.0,
+                        color: Color.fromARGB(255, 155, 0, 0),
+                      ),
+                    ],
                   ),
-                  ElevatedButton(
-                    onPressed: () => openBossOverlay(bosses[index].name),
-                    child: Text("Display"),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(30, 10, 0, 0),
+                    child: Row(
+                      children: [
+                        DecoratedBox(
+                          decoration: BoxDecoration(),
+                          child: Text(bosses[index].name),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: ElevatedButton(
+                            onPressed:
+                                () => openBossOverlay(bosses[index].name),
+                            child: Text(
+                              "Display",
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ],
-              );
-            },
+                );
+              },
+            ),
           );
         }
       },

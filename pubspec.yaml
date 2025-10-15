@@ -78,6 +78,7 @@ flutter:
      - assets/images/tempest_ogre_icon.png
      - assets/images/void_ogre_icon.png
      - assets/data/bosses.json
+     - assets/images/background.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
