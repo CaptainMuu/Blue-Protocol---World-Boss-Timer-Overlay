@@ -62,10 +62,7 @@ class _BossTimerPageState extends State<BossTimerPage> {
         Container(
           height: 50,
           width: 100,
-          decoration: BoxDecoration(
-            color: Colors.black,
-            borderRadius: BorderRadius.circular(16),
-          ),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
           child: Padding(
             padding: const EdgeInsets.only(top: 5),
             child: Column(
@@ -76,6 +73,7 @@ class _BossTimerPageState extends State<BossTimerPage> {
                     color: Colors.white,
                     fontWeight: FontWeight.w700,
                     fontSize: 15,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   child: Text(boss.name),
                 ),
