@@ -34,26 +34,25 @@ class _WorldBossTimerState extends State<WorldBossTimer> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<Boss>(
-      future: bossFuture,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
-        } else if (snapshot.hasError) {
-          return Center(child: Text('Error:{$snapshot.error}'));
-        } else {
-          final boss = snapshot.data!;
-          return MaterialApp(
-            theme: ThemeData(
-              fontFamily: 'Nordic',
-              textTheme: TextTheme(bodyMedium: TextStyle(color: Colors.white)),
-            ),
-            debugShowCheckedModeBanner: false,
-            title: 'World Boss Timer',
-            home: OverlayWindow(boss: boss),
-          );
-        }
-      },
+    return MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'Nordic',
+        textTheme: const TextTheme(bodyMedium: TextStyle(color: Colors.white)),
+      ),
+      debugShowCheckedModeBanner: false,
+      home: FutureBuilder<Boss>(
+        future: bossFuture,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error:{$snapshot.error}'));
+          } else {
+            final boss = snapshot.data!;
+            return OverlayWindow(boss: boss);
+          }
+        },
+      ),
     );
   }
 }

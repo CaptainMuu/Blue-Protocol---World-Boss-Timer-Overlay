@@ -64,6 +64,19 @@ flutter:
   assets:
      - assets/images/FrostOgre_icon.png
      - assets/images/GoldenJuggernaut_icon.png
+     - assets/images/brigand_guard_captain_icon.png
+     - assets/images/celestial_flier_icon.png
+     - assets/images/goblin_king_icon.png
+     - assets/images/inferno_goblin_mage_icon.png
+     - assets/images/inferno_ogre_icon.png
+     - assets/images/iron_fang_icon.png
+     - assets/images/lizardman_king_icon.png
+     - assets/images/muku_king_icon.png
+     - assets/images/phantom_arachnocrab_icon.png
+     - assets/images/shadow_captain_icon.png
+     - assets/images/storm_goblin_king_icon.png
+     - assets/images/tempest_ogre_icon.png
+     - assets/images/void_ogre_icon.png
      - assets/data/bosses.json
 
   # An image asset can refer to one or more resolution-specific "variants", see

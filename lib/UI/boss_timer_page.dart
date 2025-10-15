@@ -19,6 +19,8 @@ class _BossTimerPageState extends State<BossTimerPage> {
   @override
   void initState() {
     super.initState();
+    boss = widget.boss;
+    startTimer();
   }
 
   void startTimer() {
@@ -52,7 +54,6 @@ class _BossTimerPageState extends State<BossTimerPage> {
             ? ('--:--')
             : ('${timeRemaining!.inMinutes.toString().padLeft(2, '0')}:${timeRemaining!.inSeconds.remainder(60).toString().padLeft(2, '0')}');
     //set time string to be a string value of timeRemaining - if it's null, then display --:--
-    startTimer();
     return Row(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,20 +63,32 @@ class _BossTimerPageState extends State<BossTimerPage> {
           height: 50,
           width: 100,
           decoration: BoxDecoration(
-            color: Colors.black.withOpacity(0.5),
+            color: Colors.black,
             borderRadius: BorderRadius.circular(16),
           ),
-          child: Column(
-            children: [
-              Text(
-                '${boss.name}',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w700,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 5),
+            child: Column(
+              children: [
+                Text(
+                  boss.name,
+                  style: TextStyle(
+                    fontFamily: 'Nordic',
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 13,
+                  ),
                 ),
-              ),
-              Text(timeString, style: TextStyle(color: Colors.white)),
-            ],
+                Text(
+                  timeString,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 18,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],

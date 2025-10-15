@@ -12,61 +12,63 @@
   {
     "name": "Inferno Ogre",
     "respawnInterval": 60,
-    "icon": "assets/images/GoldenJuggernaut_icon.png"
+    "icon": "assets/images/inferno_ogre_icon.png"
   },
   {
     "name": "Phantom Arachnocrab",
     "respawnInterval": 30,
-    "icon": "assets/images/GoldenJuggernaut_icon.png"
+    "icon": "assets/images/phantom_arachnocrab_icon.png"
   },
   {
     "name": "Brigand Leader",
     "respawnInterval": 60,
-    "icon": "assets/images/GoldenJuggernaut_icon.png"
+    "icon": "assets/images/brigand_guard_captain_icon.png"
   },
   {
     "name": "Venobzzar Incubator",
     "respawnInterval": 30,
-    "icon": "assets/images/FrostOgre_icon.png"
+    "icon": "assets/images/FrostOgre_icon.png",
+    "status": "to be changed!"
   },
   {
     "name": "Muku Chief",
     "respawnInterval": 60,
-    "icon": "assets/images/GoldenJuggernaut_icon.png"
+    "icon": "assets/images/muku_king_icon.png",
+    "status": "to be changed!"
   },
   {
     "name": "Iron Fang",
     "respawnInterval": 30,
-    "icon": "assets/images/GoldenJuggernaut_icon.png"
+    "icon": "assets/images/iron_fang_icon.png"
   },
   {
     "name": "Storm Goblin King",
     "respawnInterval": 60,
-    "icon": "assets/images/GoldenJuggernaut_icon.png"
+    "icon": "assets/images/storm_goblin_king_icon.png"
   },
   {
     "name": "Tempest Ogre",
     "respawnInterval": 30,
-    "icon": "assets/images/FrostOgre_icon.png"
+    "icon": "assets/images/tempest_ogre_icon.png"
   },
   {
     "name": "Celestial Flier",
     "respawnInterval": 60,
-    "icon": "assets/images/GoldenJuggernaut_icon.png"
+    "icon": "assets/images/celestial_flier_icon.png"
   },
   {
     "name": "Lizardman King",
     "respawnInterval": 30,
-    "icon": "assets/images/GoldenJuggernaut_icon.png"
+    "icon": "assets/images/lizardman_king_icon.png"
   },
   {
     "name": "Goblin King",
     "respawnInterval": 60,
-    "icon": "assets/images/GoldenJuggernaut_icon.png"
+    "icon": "assets/images/goblin_king_icon.png"
   },
   {
     "name": "Muku King",
     "respawnInterval": 30,
-    "icon": "assets/images/GoldenJuggernaut_icon.png"
+    "icon": "assets/images/muku_king_icon.png"
   }
 ]

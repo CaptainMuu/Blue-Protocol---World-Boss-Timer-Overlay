@@ -51,6 +51,7 @@ class _OverlayWindowState extends State<OverlayWindow> {
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
+                      fontSize: 8,
                     ),
                   ),
                 ),
