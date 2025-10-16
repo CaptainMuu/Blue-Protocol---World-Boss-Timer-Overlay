@@ -15,17 +15,17 @@ class Boss {
     );
   }
   Duration timeUntilNextSpawn() {
-    //check what minute of hour it is
-    final currentMinute = DateTime.now().minute;
-    final currentSecond = DateTime.now().second;
-    int minuteToSpawn = 0;
-    int secondToSpawn = 60 - currentSecond;
-    if (currentMinute < respawnInterval) {
-      minuteToSpawn = respawnInterval - currentMinute;
-      return Duration(minutes: minuteToSpawn, seconds: secondToSpawn);
-    } else {
-      minuteToSpawn = 60 - respawnInterval;
+    final now = DateTime.now();
+    DateTime nextRespawn = DateTime(
+      now.year,
+      now.month,
+      now.day,
+      now.hour,
+      respawnInterval,
+    );
+    if (now.isAfter(nextRespawn)) {
+      nextRespawn.add(Duration(hours: 1));
     }
-    return Duration(minutes: minuteToSpawn, seconds: secondToSpawn);
+    return nextRespawn.difference(now);
   }
 }
