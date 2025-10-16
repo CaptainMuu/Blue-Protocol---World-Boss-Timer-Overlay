@@ -1,73 +1,73 @@
 [
   {
-    "name": "Golden Juggernaut",
+    "name": "Golden_Juggernaut",
     "respawnInterval": 60,
     "icon": "assets/images/GoldenJuggernaut_icon.png"
   },
   {
-    "name": "Frost Ogre",
+    "name": "Frost_Ogre",
     "respawnInterval": 30,
     "icon": "assets/images/FrostOgre_icon.png"
   },
   {
-    "name": "Inferno Ogre",
+    "name": "Inferno_Ogre",
     "respawnInterval": 60,
     "icon": "assets/images/inferno_ogre_icon.png"
   },
   {
-    "name": "Phantom Arachnocrab",
+    "name": "Phantom_Arachnocrab",
     "respawnInterval": 30,
     "icon": "assets/images/phantom_arachnocrab_icon.png"
   },
   {
-    "name": "Brigand Leader",
+    "name": "Brigand_Leader",
     "respawnInterval": 60,
     "icon": "assets/images/brigand_guard_captain_icon.png"
   },
   {
-    "name": "Venobzzar Incubator",
+    "name": "Venobzzar_Incubator",
     "respawnInterval": 30,
     "icon": "assets/images/FrostOgre_icon.png",
     "status": "to be changed!"
   },
   {
-    "name": "Muku Chief",
+    "name": "Muku_Chief",
     "respawnInterval": 60,
     "icon": "assets/images/muku_king_icon.png",
     "status": "to be changed!"
   },
   {
-    "name": "Iron Fang",
+    "name": "Iron_Fang",
     "respawnInterval": 30,
     "icon": "assets/images/iron_fang_icon.png"
   },
   {
-    "name": "Storm Goblin King",
+    "name": "Storm_Goblin_King",
     "respawnInterval": 60,
     "icon": "assets/images/storm_goblin_king_icon.png"
   },
   {
-    "name": "Tempest Ogre",
+    "name": "Tempest_Ogre",
     "respawnInterval": 30,
     "icon": "assets/images/tempest_ogre_icon.png"
   },
   {
-    "name": "Celestial Flier",
+    "name": "Celestial_Flier",
     "respawnInterval": 60,
     "icon": "assets/images/celestial_flier_icon.png"
   },
   {
-    "name": "Lizardman King",
+    "name": "Lizardman_King",
     "respawnInterval": 30,
     "icon": "assets/images/lizardman_king_icon.png"
   },
   {
-    "name": "Goblin King",
+    "name": "Goblin_King",
     "respawnInterval": 60,
     "icon": "assets/images/goblin_king_icon.png"
   },
   {
-    "name": "Muku King",
+    "name": "Muku_King",
     "respawnInterval": 30,
     "icon": "assets/images/muku_king_icon.png"
   }

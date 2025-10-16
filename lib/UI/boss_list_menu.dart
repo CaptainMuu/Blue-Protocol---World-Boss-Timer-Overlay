@@ -5,7 +5,6 @@ import 'package:bp_world_boss/models/boss.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'
     show rootBundle; //get only rootBundle from this package
-import 'package:path/path.dart' as path;
 
 class BossListMenu extends StatefulWidget {
   BossListMenu({super.key});
@@ -17,10 +16,7 @@ class _BossListMenuState extends State<BossListMenu> {
   late Future<List<Boss>> bossesFuture;
 
   void openBossOverlay(String bossName) async {
-    final exePath = path.join(
-      path.join(Directory.current.path),
-      'bp_world_boss.exe',
-    ); //in final -> path.join(Directory.current.path)
+    final exePath = Platform.resolvedExecutable;
     print(exePath);
     try {
       final process = await Process.start(exePath, [
@@ -97,7 +93,7 @@ class _BossListMenuState extends State<BossListMenu> {
                       children: [
                         DecoratedBox(
                           decoration: BoxDecoration(),
-                          child: Text(bosses[index].name),
+                          child: Text(bosses[index].name.replaceAll('_', ' ')),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 8.0),

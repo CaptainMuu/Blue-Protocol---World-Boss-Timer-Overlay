@@ -46,7 +46,7 @@ class _WorldBossTimerState extends State<WorldBossTimer> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
-            return Center(child: Text('Error:{$snapshot.error}'));
+            return Center(child: Text('Error:${snapshot.error}'));
           } else {
             final boss = snapshot.data!;
             return OverlayWindow(boss: boss);
