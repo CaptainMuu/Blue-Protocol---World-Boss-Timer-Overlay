@@ -6,7 +6,7 @@ Download the installer and use it. After installation, launch the .exe file. Cho
 
 
 
-DOWNLOAD LINK (LATEST VERSION): https://github.com/CaptainMuu/Blue-Protocol---World-Boss-Timer-Overlay/releases/download/v1.0.1/BP.World.Boss.Timer.setup.exe
+DOWNLOAD LINK (v1.0.1): https://github.com/CaptainMuu/Blue-Protocol---World-Boss-Timer-Overlay/releases/download/v1.0.1/BP.World.Boss.Timer.setup.exe
 
 
 ## Changelog:

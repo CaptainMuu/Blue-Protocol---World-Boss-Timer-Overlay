@@ -24,7 +24,7 @@ class Boss {
       respawnInterval,
     );
     if (now.isAfter(nextRespawn)) {
-      nextRespawn.add(Duration(hours: 1));
+      nextRespawn.add(Duration(hours: 1)); //add hour
     }
     return nextRespawn.difference(now);
   }
