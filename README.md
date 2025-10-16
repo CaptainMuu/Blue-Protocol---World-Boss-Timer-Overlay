@@ -10,4 +10,6 @@ DOWNLOAD LINK (v1.0.1): https://github.com/CaptainMuu/Blue-Protocol---World-Boss
 
 
 ## Changelog:
-15.10.2025 -- Version 1.0 release
+16.10.2025 -- Version 1.0.1 release - Hotfix for "half-hour" bosees;
+
+15.10.2025 -- Version 1.0.0 release;
