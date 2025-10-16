@@ -24,7 +24,7 @@ class Boss {
       minuteToSpawn = respawnInterval - currentMinute;
       return Duration(minutes: minuteToSpawn, seconds: secondToSpawn);
     } else {
-      minuteToSpawn = currentMinute - respawnInterval;
+      minuteToSpawn = 60 - respawnInterval;
     }
     return Duration(minutes: minuteToSpawn, seconds: secondToSpawn);
   }
