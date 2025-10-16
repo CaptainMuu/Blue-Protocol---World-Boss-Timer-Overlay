@@ -3,7 +3,7 @@ Overlay made to track respawn times of World Bosses. Can be also used for other 
 
 ## How to use it
 Download the installer and use it. After installation, launch the .exe file. Choose the boss(es) to track. 
-Leave the "main" app working in the background.
+
 
 
 DOWNLOAD LINK (LATEST VERSION): https://github.com/CaptainMuu/Blue-Protocol---World-Boss-Timer-Overlay/releases/download/Release/BP.World.Boss.Timer.setup.exe
